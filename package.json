@@ -1,0 +1,8 @@
+{
+  "name": "simulate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jp4bidube/BTC-TDP-simulate.git",
+  "author": "João Pedro Santos <52284888+jp4bidube@users.noreply.github.com>",
+  "license": "MIT"
+}
