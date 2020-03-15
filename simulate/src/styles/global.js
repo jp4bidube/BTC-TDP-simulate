@@ -14,8 +14,10 @@ body #root {
 }
 body{
     display:flex;
+    width: auto;
+    height:auto;
     flex-direction:column;
-    background:#CAC4CE;
+    background:#eae5ff;
     font-size:14px;
     color: #333;
     font-family: 'Inter', sans-serif;
