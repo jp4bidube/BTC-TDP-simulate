@@ -6,7 +6,7 @@ App em ReactJs, para simulação de investimentos
 1. Faça um clone desse repositório;
 2. Entre na pasta rodando `cd simulate`;
 3. Rode `yarn` para instalar as dependências;
-4. Rode `yarn start` para iniciar o servidor.
+4. Rode `yarn start` para iniciar o App.
 
 ## :memo: Licença
 
