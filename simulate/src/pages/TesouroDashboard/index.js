@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Divbutton, Card, Navigate, Form, Label, SubmitButton, Select, Inputblock, DivChart, Divcontent, Title } from './styles';
 import { useNavigate } from "react-router-dom";
 import Chart from '../../components/Chart'
@@ -36,6 +36,12 @@ export default function TesouroDashboard() {
     setData([])
   }
 
+  useEffect(() => {
+    dispatch({
+      type: "", data: data
+    });
+  }, [])
+
   return (
     <Container>
       <Card>
@@ -68,7 +74,7 @@ export default function TesouroDashboard() {
             </Inputblock>
           </Form>
           <DivChart>
-            <Chart></Chart>
+            <Chart type="line"></Chart>
           </DivChart>
         </Divcontent>
       </Card>

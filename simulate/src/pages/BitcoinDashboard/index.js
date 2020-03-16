@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Divbutton, Card, Navigate, Form, Label, SubmitButton, Select, Inputblock, DivChart, Divcontent, Title } from './styles';
 import { useNavigate } from "react-router-dom";
 import Chart from '../../components/Chart'
 import { useDispatch } from 'react-redux'
+import BitcoinService from './BitcoinService'
 
 export default function BitcoinDashboard() {
   const [value, setValue] = useState(2000);
   const [date, setDate] = useState(12);
-  const data = []
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let data = []
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -17,22 +17,18 @@ export default function BitcoinDashboard() {
     navigate(path)
   }
 
-  function handleData() {
-
-    const taxaMensal = 0.1 / 12
-    let sum = value * taxaMensal
-    let total = value
-
-    for (let i = 0; i < date; i++) {
-      total += sum
-      let obj = { name: months[i], valor: total.toFixed(2) };
-      data.push(obj)
-    }
-
+  async function handleData() {
+    data = await BitcoinService(value, date)
     dispatch({
       type: "BTC_SIMULATE", data: data
     });
   }
+
+  useEffect(() => {
+    dispatch({
+      type: "", data: data
+    });
+  }, [])
 
   return (
     <Container>

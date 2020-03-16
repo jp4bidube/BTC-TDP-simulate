@@ -42,17 +42,14 @@ const INITIAL_STATE = {
 };
 
 function chartData(state = INITIAL_STATE, action) {
-  console.log(action.data)
   switch (action.type) {
     case 'TDP_SIMULATE':
-      state = INITIAL_STATE
       return { state, data: action.data }
     case 'BTC_SIMULATE':
-      state.data = INITIAL_STATE
-      return { state, data: INITIAL_STATE.data }
+      return { state, data: action.data }
     default:
       state = INITIAL_STATE
-      return state
+      return { state, data: INITIAL_STATE.data }
   }
 }
 
